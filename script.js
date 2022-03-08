@@ -25,9 +25,17 @@ function init() {
 	// 	}
 	// }
     const regularbttn = document.querySelector('#fbttn');
+    //the rgular fortune button
+
     const wisdombttn = document.querySelector('#wbttn');
+    //the wisdom fortune button
+
     const vocabbttn = document.querySelector('#vbttn');
+    //the vocab fortune button
+
     const lotterybttn = document.querySelector('#lbttn');
+    //the lottery fortune button
+
 
 	let fcBtn = document.querySelector("button"),
 		fortuneText = document.querySelector(".fc-fortune-text"),
@@ -81,6 +89,21 @@ function init() {
 	
 	getFortune();
 	fcBtn.addEventListener("click",nextState);
+
+    regularbttn.addEventListener('click',realFortune);
+        //activates the real fortune response on click of regular fortune button
+
+    wisdombttn.addEventListener('click',wisdomFortune);
+        //activates the wisdom fortune response on click of wisdom button
+
+
+    vocabbttn.addEventListener('click', vocabFortune);
+        //activates the vocab fortune response when the new vocab button is clicked
+        
+        
+    lotterybttn.addEventListener('click', lotteryFortune);
+        //activates the lottery fortune response when the new lottery button is clicked     
+
 
 
 
