@@ -9,9 +9,6 @@ function init() {
     const wisdombttn = document.querySelector('#wbttn');
     //the wisdom fortune button
 
-    const vocabbttn = document.querySelector('#vbttn');
-    //the vocab fortune button
-
     const lotterybttn = document.querySelector('#lbttn');
     //the lottery fortune button
 
@@ -19,22 +16,38 @@ function init() {
 	const  fcBtn = document.getElementById("button")
     //the cookie is a button and this selects it 
 
+	const form = document.getElementById("intake_form")
+	//the new fortune form
+
+	const newFortuneInput = document.getElementById('newtext')
+	//text input field on the form
+
+
 
 	const fortuneText = document.querySelector("#fortunetext")
     //p element that contains fortune
-
+	const allTheNumbers = document.querySelector('.fc-lucky-numbers')
 
 	const luckyNumbers = document.querySelector(".fc-lucky-numbers span")
     	 
 	function getFortune(obj){
 			fortuneText.innerText = obj.content
 			luckyNumbers.innerText = obj.numbers
+			allTheNumbers.style.display = "inline"
 		}
 		
 	function getLuckyNum(obj){
 		fortuneText.innerText = " "
 		luckyNumbers.innerText = obj.numbers
+		allTheNumbers.style.display = "inline"
 	}	
+
+
+	function getWisdom(obj){
+		fortuneText.innerText = obj.content
+		allTheNumbers.style.display = "none"
+		
+	}
 		function grabRandomId(arry){
 			let newId = Math.floor((Math.random() * arry.length) + 1);
 			fetch(`http://localhost:3000/fortune/${newId}`)
@@ -55,7 +68,15 @@ function init() {
 			})
 		}
 	
+		function grabRandomIdWise(arry){
+			let newId = Math.floor((Math.random() * arry.length) + 1);
+			fetch(`http://localhost:3000/fortune/${newId}`)
+			.then((resp) => resp.json())
+			.then((data) => {
+				getWisdom(data)
 
+			})
+		}
 
 
 
@@ -84,7 +105,20 @@ function init() {
     
   
        
-    // wisdombttn.addEventListener('click',wisdomFortune);
+    wisdombttn.addEventListener('click',() => {
+		if(fcBtn.classList.contains("opened")){
+			fcBtn.classList.remove("opened")
+			fcBtn.classList.add('spawned')
+		}else{
+
+		fetch('http://localhost:3000/fortune')
+		.then((resp) => resp.json())
+		.then((data) => {
+			grabRandomIdWise(data)
+			changeClass(fcBtn)
+			})
+		}
+	});
     //     //activates the wisdom fortune response on click of wisdom button
         
        
@@ -105,6 +139,42 @@ function init() {
 	});
          //activates the lottery fortune response when the new lottery button is clicked     
   
+		
+		  //to generate random number
+	form.addEventListener('submit', (e) => {
+		e.preventDefault()
+		alert('was ckicked')
+		let num = Array.from({length: 5}, () => Math.floor(Math.random() * 69) +1);
+		let num2 = Math.floor(Math.random() * 24)
+		num.push(num2)
+		let newproverb = newFortuneInput.value 
+		console.log(newproverb)
+		let newObj = {
+		content: newproverb,
+		numbers: [num]	
+		}
+		fetch('http://localhost:3000/fortune',{
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json'
+			},
+			body: JSON.stringify(newObj)
+		});
+		form.reset()
+
+	})
+
+
+
+
+
+
+
+
+
+
+
 	function changeClass (element){
 			    let cls = element.classList,
 				spawned = "spawned",
