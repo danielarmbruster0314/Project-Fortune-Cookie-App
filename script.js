@@ -28,11 +28,11 @@ function init() {
     
 		function grabRandomId(arry){
 			let newId = Math.floor((Math.random() * arry.length) + 1);
-			fetch(`url/${newId}`)
+			fetch(`http://localhost:3000/fortune/${newId}`)
 			.then((resp) => resp.json())
 			.then((data) => {
 				getFortune(data)
-				changeClass(fcBtn)
+
 			})
 		}
 
@@ -42,12 +42,19 @@ function init() {
 			luckyNumbers.innerText = obj.numbers
 		}
 		regularbttn.addEventListener('click',() => {
-		alert('was clicked')
-		fetch('url')
-		.then((resp) => resp.json())
-		.then((data) => grabRandomId(data))
-        changeClass(fcBtn);
 		
+		if(fcBtn.classList.contains("opened")){
+			fcBtn.classList.remove("opened")
+			fcBtn.classList.add('spawned')
+		}else{
+
+		fetch('http://localhost:3000/fortune')
+		.then((resp) => resp.json())
+		.then((data) => {
+			grabRandomId(data)
+			changeClass(fcBtn)
+			})
+		}
     });
 		
 	
