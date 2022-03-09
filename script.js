@@ -26,14 +26,26 @@ function init() {
 
 	const luckyNumbers = document.querySelector(".fc-lucky-numbers span")
     
-    
+		function grabRandomId(arry){
+			let newId = Math.floor((Math.random() * arry.length) + 1);
+			fetch(`url/${newId}`)
+			.then((resp) => resp.json())
+			.then((data) => {
+				getFortune(data)
+				changeClass(fcBtn)
+			})
+		}
+
+
 		 function getFortune(obj){
-			fortuneText.innerText = "obj.content"
-			luckyNumbers.innerText = [1,2,3,4,5,6]
+			fortuneText.innerText = obj.content
+			luckyNumbers.innerText = obj.numbers
 		}
 		regularbttn.addEventListener('click',() => {
 		alert('was clicked')
-		getFortune();
+		fetch('url')
+		.then((resp) => resp.json())
+		.then((data) => grabRandomId(data))
         changeClass(fcBtn);
 		
     });
