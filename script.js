@@ -1,30 +1,9 @@
-addEventListener("load",init);
-function init() {
-	// class Fortune {
-	// 	constructor(fortuneList) {
-	// 		this.text = !fortuneList ? "No fortune" : fortuneList[~~(Math.random() * fortuneList.length)];
-	// 		this.luckyNumbers = [];
-	// 		this.drawLuckyNumbers();
-	// 	}
-	// 	drawLuckyNumbers() {
-	// 		let maxDraws = 6,
-	// 			draws = maxDraws,
-	// 			maxNumber = 99,
-	// 			numberPool = [];
 
-	// 		// create number pool
-	// 		while (maxNumber--) {
-	// 			numberPool.unshift(maxNumber + 1);
-	// 		}
-	// 		// draw from pool, populate the lucky numbers
-	// 		while (draws--) {
-	// 			let drawn = ~~(Math.random() * numberPool.length);
-	// 			this.luckyNumbers.push(numberPool[drawn]);
-	// 			numberPool.splice(drawn,1);
-	// 		}
-	// 	}
-	// }
-    const regularbttn = document.querySelector('#fbttn');
+
+
+addEventListener("DOMContentLoaded",init);
+function init() {
+	const regularbttn = document.getElementById('fbttn');
     //the rgular fortune button
 
     const wisdombttn = document.querySelector('#wbttn');
@@ -37,74 +16,71 @@ function init() {
     //the lottery fortune button
 
 
-	let fcBtn = document.querySelector("button"),
-		fortuneText = document.querySelector(".fc-fortune-text"),
-		fortuneLuckyNumbers = document.querySelector(".fc-lucky-numbers span"),
-		// fortuneList = [
-		// 	"Did you know that fortune cookies aren’t even Chinese? They’re made by Americans, based on a Japanese recipe.",
-		// 	"You have an ability to sense and know higher truth.",
-		// 	"Excellent time to become a missing person.",
-		// 	"Don’t look back, the lemmings are gaining on you.",
-		// 	"You look tired.",
-		// 	"Chess tonight.",
-		// 	"Don’t feed the bats tonight.",
-		// 	"Your boss is a few sandwiches short of a picnic.",
-		// 	"You will forget that you ever knew me.",
-		// 	"Future looks spotty. You will spill soup in late evening.",
-		// 	"You have the capacity to learn from mistakes. You’ll learn a lot today.",
-		// 	"A vivid and creative mind characterizes you.",
-		// 	"If you think last Tuesday was a drag, wait till you see what happens tomorrow!",
-		// 	"You will be attacked next Wednesday at 3:15 P.M. by six samurai sword wielding purple fish glued to Harley-Davidson motorcycles.",
-		// 	"There was a phone call for you.",
-		// 	"Are you making all this up as you go along?",
-		// 	"Don’t plan any hasty moves. You’ll be evicted soon anyway.",
-		// 	"Advancement in position.",
-		// 	"You’re ugly and your mother dresses you funny.",
-		// 	"Be careful! Is it classified?"
-		// ],
-		fortune = new Fortune(),
+	const  fcBtn = document.getElementById("button")
+    //the cookie is a button and this selects it 
 
-		getFortune = function(){
-			fortune = new Fortune(fortuneList);
-			fortuneText.innerHTML = fortune.text;
-			fortuneLuckyNumbers.innerHTML = fortune.luckyNumbers.join(", ");
-		},
-		nextState = function(){
-			let elClass = this.classList,
+
+	const fortuneText = document.querySelector("#fortunetext")
+    //p element that contains fortune
+
+
+	const luckyNumbers = document.querySelector(".fc-lucky-numbers span")
+    
+    
+		//  function getFortune(obj){
+		// 	fortuneText.innerText = obj.content
+		// 	luckyNumbers.innerText = obj.numbers
+		// }
+		regularbttn.addEventListener('click',() => {
+		alert('was clicked')
+		//getFortune();
+        changeClass(fcBtn);
+		
+    });
+		
+	
+	//getFortune();
+	//fcBtn.addEventListener("click",nextState);
+
+    
+    //     //activates the real fortune response on click of regular fortune button
+       
+    // wisdombttn.addEventListener('click',wisdomFortune);
+    //     //activates the wisdom fortune response on click of wisdom button
+        
+
+    // vocabbttn.addEventListener('click', vocabFortune);
+    //     //activates the vocab fortune response when the new vocab button is clicked
+       
+        
+    // lotterybttn.addEventListener('click', lotteryFortune);
+    //     //activates the lottery fortune response when the new lottery button is clicked     
+  
+	function changeClass (element){
+			    let cls = element.classList,
 				spawned = "spawned",
 				opened = "opened";
 
 			// open cookie
-			if (elClass.contains(spawned)) {
-				elClass.remove(spawned);
-				elClass.add(opened);
+			if (cls.contains(spawned)) {
+				cls.remove(spawned);
+				cls.add(opened);
 
 			// new cookie
 			} else {
-				elClass.remove(opened);
-				elClass.add(spawned);
+				cls.remove(opened);
+				cls.add(spawned);
 				getFortune();
 			}
 		};
+
+// fetch('url')
+// retunr resp array of objects
+
+// function(object){ 
 	
-	getFortune();
-	fcBtn.addEventListener("click",nextState);
-
-    regularbttn.addEventListener('click',realFortune);
-        //activates the real fortune response on click of regular fortune button
-
-    wisdombttn.addEventListener('click',wisdomFortune);
-        //activates the wisdom fortune response on click of wisdom button
-
-
-    vocabbttn.addEventListener('click', vocabFortune);
-        //activates the vocab fortune response when the new vocab button is clicked
-        
-        
-    lotterybttn.addEventListener('click', lotteryFortune);
-        //activates the lottery fortune response when the new lottery button is clicked     
-
-
+// 	object.id = mATH.FLOOR(math.radom() *Object.length)
+// fetch('url/`${id}')
 
 
 
