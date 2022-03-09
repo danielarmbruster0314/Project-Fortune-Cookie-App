@@ -25,7 +25,16 @@ function init() {
 
 
 	const luckyNumbers = document.querySelector(".fc-lucky-numbers span")
-    
+    	 
+	function getFortune(obj){
+			fortuneText.innerText = obj.content
+			luckyNumbers.innerText = obj.numbers
+		}
+		
+	function getLuckyNum(obj){
+		fortuneText.innerText = " "
+		luckyNumbers.innerText = obj.numbers
+	}	
 		function grabRandomId(arry){
 			let newId = Math.floor((Math.random() * arry.length) + 1);
 			fetch(`http://localhost:3000/fortune/${newId}`)
@@ -36,13 +45,26 @@ function init() {
 			})
 		}
 
+		function grabRandomIdLucky(arry){
+			let newId = Math.floor((Math.random() * arry.length) + 1);
+			fetch(`http://localhost:3000/fortune/${newId}`)
+			.then((resp) => resp.json())
+			.then((data) => {
+				getLuckyNum(data)
 
-		 function getFortune(obj){
-			fortuneText.innerText = obj.content
-			luckyNumbers.innerText = obj.numbers
+			})
 		}
+	
+
+
+
+
+
+
+
+
 		regularbttn.addEventListener('click',() => {
-		
+		 //activates the real fortune response on click of regular fortune button
 		if(fcBtn.classList.contains("opened")){
 			fcBtn.classList.remove("opened")
 			fcBtn.classList.add('spawned')
@@ -58,22 +80,30 @@ function init() {
     });
 		
 	
-	//getFortune();
-	//fcBtn.addEventListener("click",nextState);
 
     
-    //     //activates the real fortune response on click of regular fortune button
+  
        
     // wisdombttn.addEventListener('click',wisdomFortune);
     //     //activates the wisdom fortune response on click of wisdom button
         
-
-    // vocabbttn.addEventListener('click', vocabFortune);
-    //     //activates the vocab fortune response when the new vocab button is clicked
        
         
-    // lotterybttn.addEventListener('click', lotteryFortune);
-    //     //activates the lottery fortune response when the new lottery button is clicked     
+    lotterybttn.addEventListener('click', () => {
+		if(fcBtn.classList.contains("opened")){
+			fcBtn.classList.remove("opened")
+			fcBtn.classList.add('spawned')
+		}else{
+
+		fetch('http://localhost:3000/fortune')
+		.then((resp) => resp.json())
+		.then((data) => {
+			grabRandomIdLucky(data)
+			changeClass(fcBtn)
+			})
+		}
+	});
+         //activates the lottery fortune response when the new lottery button is clicked     
   
 	function changeClass (element){
 			    let cls = element.classList,
@@ -92,14 +122,6 @@ function init() {
 				getFortune();
 			}
 		};
-
-// fetch('url')
-// retunr resp array of objects
-
-// function(object){ 
-	
-// 	object.id = mATH.FLOOR(math.radom() *Object.length)
-// fetch('url/`${id}')
 
 
 
