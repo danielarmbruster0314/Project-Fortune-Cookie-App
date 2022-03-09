@@ -27,13 +27,13 @@ function init() {
 	const luckyNumbers = document.querySelector(".fc-lucky-numbers span")
     
     
-		//  function getFortune(obj){
-		// 	fortuneText.innerText = obj.content
-		// 	luckyNumbers.innerText = obj.numbers
-		// }
+		 function getFortune(obj){
+			fortuneText.innerText = "obj.content"
+			luckyNumbers.innerText = [1,2,3,4,5,6]
+		}
 		regularbttn.addEventListener('click',() => {
 		alert('was clicked')
-		//getFortune();
+		getFortune();
         changeClass(fcBtn);
 		
     });

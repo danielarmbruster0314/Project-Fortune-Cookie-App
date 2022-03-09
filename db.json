@@ -1,0 +1,54 @@
+{
+    "fortune": [
+      {
+        "id": 1,
+        "content": "The early bird gets the worm, but the second mouse gets the cheese.",
+        "numbers": [32, 49, 36, 46, 26, 16] 
+      },
+      {
+        "id": 2,
+        "content": "Be on the alert to recognize your prime at whatever time of your life it may occur.",
+        "numbers": [34, 8, 11, 3, 35, 40] 
+      },
+      {
+        "id": 3,
+        "content": "Your road to glory will be rocky, but fulfilling.",
+        "numbers": [39, 42, 14, 41, 46, 32] 
+      },
+      {
+        "id": 4,
+        "content": "Courage is not simply one of the virtues, but the form of every virtue at the testing point.",
+        "numbers": [15, 20, 46, 47, 1, 31] 
+      }, 
+      {
+        "id": 5,
+        "content": "Patience is your alley at the moment. Don’t worry!",
+        "numbers": [29, 22, 20, 41, 12, 38] 
+      },
+      {
+        "id": 6,
+        "content": "Nothing is impossible to a willing heart.",
+        "numbers": [31, 23, 30, 10, 47, 42] 
+      },
+      {
+        "id": 7,
+        "content": "Don’t worry about money. The best things in life are free.",
+        "numbers": [7, 44, 11, 37, 16, 8] 
+      },
+      {
+        "id": 8,
+        "content": "Don’t pursue happiness – create it.",
+        "numbers": [4, 28, 36, 38, 17, 22] 
+      },
+      {
+        "id": 9,
+        "content": "Courage is not the absence of fear; it is the conquest of it.",
+        "numbers": [25, 20, 30, 1, 14, 7] 
+      },
+      {
+        "id": 10,
+        "content": "Nothing is so much to be feared as fear.",
+        "numbers": [14, 19, 7, 13, 17, 39] 
+      }
+    ]
+  }
