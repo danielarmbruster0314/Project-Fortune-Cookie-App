@@ -11,6 +11,8 @@ README
     If the user has generated a fortune by clicking one of the buttons they will have to click one of the buttons again before recieving a fortune in order to reset the cookie.
 
 
+--please enjoy!
+
 
 
 
