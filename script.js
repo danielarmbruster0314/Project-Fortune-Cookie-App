@@ -78,7 +78,7 @@ function init() {
 			})
 		}
 
-
+		
 
 
 
@@ -124,10 +124,7 @@ function init() {
        
         
     lotterybttn.addEventListener('click', () => {
-		if(fcBtn.classList.contains("opened")){
-			fcBtn.classList.remove("opened")
-			fcBtn.classList.add('spawned')
-		}else{
+		newCookie(fcBtn)
 
 		fetch('http://localhost:3000/fortune')
 		.then((resp) => resp.json())
@@ -135,7 +132,6 @@ function init() {
 			grabRandomIdLucky(data)
 			changeClass(fcBtn)
 			})
-		}
 	});
          //activates the lottery fortune response when the new lottery button is clicked     
   
@@ -184,8 +180,11 @@ function init() {
 				cls.add(spawned);
 			}
 		};
-
-
-
+function newCookie(bttn){
+		if(bttn.classList.contains("opened")){
+			bttn.classList.remove("opened")
+			bttn.classList.add('spawned')
+		}
+	}
 
 }
