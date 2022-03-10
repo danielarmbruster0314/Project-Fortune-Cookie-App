@@ -22,32 +22,37 @@ function init() {
 	const newFortuneInput = document.getElementById('newtext')
 	//text input field on the form
 
-
-
 	const fortuneText = document.querySelector("#fortunetext")
     //p element that contains fortune
+
 	const allTheNumbers = document.querySelector('.fc-lucky-numbers')
+	//p element that contains "lucky numbers" text and numbers span
 
 	const luckyNumbers = document.querySelector(".fc-lucky-numbers span")
-    	 
+    //span element that contains the numbers
+
+	//generates text of the entire fortune
 	function getFortune(obj){
 			fortuneText.innerText = obj.content
 			luckyNumbers.innerText = obj.numbers
 			allTheNumbers.style.display = "inline"
 		}
-		
+	
+	//generates just the numbers of the fortune
 	function getLuckyNum(obj){
 		fortuneText.innerText = " "
 		luckyNumbers.innerText = obj.numbers
 		allTheNumbers.style.display = "inline"
 	}	
 
-
+	//gernerates just the proverb of the fortune
 	function getWisdom(obj){
 		fortuneText.innerText = obj.content
 		allTheNumbers.style.display = "none"
 		
 	}
+
+
 		function grabRandomId(arry){
 			let newId = Math.floor((Math.random() * arry.length) + 1);
 			fetch(`http://localhost:3000/fortune/${newId}`)
@@ -110,7 +115,6 @@ function init() {
 			fcBtn.classList.remove("opened")
 			fcBtn.classList.add('spawned')
 		}else{
-
 		fetch('http://localhost:3000/fortune')
 		.then((resp) => resp.json())
 		.then((data) => {
@@ -124,14 +128,17 @@ function init() {
        
         
     lotterybttn.addEventListener('click', () => {
-		newCookie(fcBtn)
-
+		if(fcBtn.classList.contains("opened")){
+			fcBtn.classList.remove("opened")
+			fcBtn.classList.add('spawned')
+		}else{
 		fetch('http://localhost:3000/fortune')
 		.then((resp) => resp.json())
 		.then((data) => {
 			grabRandomIdLucky(data)
 			changeClass(fcBtn)
 			})
+		}
 	});
          //activates the lottery fortune response when the new lottery button is clicked     
   
@@ -139,12 +146,10 @@ function init() {
 		  //to generate random number
 	form.addEventListener('submit', (e) => {
 		e.preventDefault()
-		alert('was ckicked')
 		let num = Array.from({length: 5}, () => Math.floor(Math.random() * 69) +1);
 		let num2 = Math.floor(Math.random() * 24)
 		num.push(num2)
 		let newproverb = newFortuneInput.value 
-		console.log(newproverb)
 		let newObj = {
 		content: newproverb,
 		numbers: [num]	
@@ -158,12 +163,11 @@ function init() {
 			body: JSON.stringify(newObj)
 		});
 		form.reset()
-
 	})
 
 
 
-
+//checks state of cookie and changes the class of the cookie objects to determine wether to be at the start of the animation or the end
 	function changeClass (element){
 			    let cls = element.classList,
 				spawned = "spawned",
@@ -180,11 +184,5 @@ function init() {
 				cls.add(spawned);
 			}
 		};
-function newCookie(bttn){
-		if(bttn.classList.contains("opened")){
-			bttn.classList.remove("opened")
-			bttn.classList.add('spawned')
-		}
-	}
 
 }
