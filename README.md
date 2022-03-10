@@ -2,6 +2,10 @@ README
 
 # Project-Fortune-Cookie-App
 
+
+# Pitch 
+    Have you ever wanted to gain insight and direction from the universe at large as to what your soul purpose is on this planet....? Me too and unfortunatly this app doesnt do that however it can provide you with a nugget of wisdom or offer you the opportunity to potentaily give someone else a nugget of wisdom with this fun fortune cookie app.
+
 --***IMPORTANT*** note that before using the app you must first start a node in your terminal for the db.json server before utilizing the app otherwise it will not function properly--
                                         set up node by using the command " json-server --watch db.json " in your terminal
 
