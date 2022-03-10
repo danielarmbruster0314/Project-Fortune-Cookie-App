@@ -52,7 +52,7 @@ function init() {
 		
 	}
 
-
+//grabs a random fortune "proverb and numbers" to display 
 		function grabRandomId(arry){
 			let newId = Math.floor((Math.random() * arry.length) + 1);
 			fetch(`http://localhost:3000/fortune/${newId}`)
@@ -63,6 +63,7 @@ function init() {
 			})
 		}
 
+//grabs a random lucky number from the local server to display
 		function grabRandomIdLucky(arry){
 			let newId = Math.floor((Math.random() * arry.length) + 1);
 			fetch(`http://localhost:3000/fortune/${newId}`)
@@ -72,7 +73,8 @@ function init() {
 
 			})
 		}
-	
+
+//grabs a random proverb from the local server to display 
 		function grabRandomIdWise(arry){
 			let newId = Math.floor((Math.random() * arry.length) + 1);
 			fetch(`http://localhost:3000/fortune/${newId}`)
@@ -82,15 +84,8 @@ function init() {
 
 			})
 		}
-
-		
-
-
-
-
-
+//activates the real fortune response on click of regular fortune button
 		regularbttn.addEventListener('click',() => {
-		 //activates the real fortune response on click of regular fortune button
 		if(fcBtn.classList.contains("opened")){
 			fcBtn.classList.remove("opened")
 			fcBtn.classList.add('spawned')
@@ -105,11 +100,7 @@ function init() {
 		}
     });
 		
-	
-
-    
-  
-       
+	 //activates the wisdom fortune response on click of wisdom button    
     wisdombttn.addEventListener('click',() => {
 		if(fcBtn.classList.contains("opened")){
 			fcBtn.classList.remove("opened")
@@ -123,10 +114,9 @@ function init() {
 			})
 		}
 	});
-    //     //activates the wisdom fortune response on click of wisdom button
         
        
-        
+    //activates the lottery fortune response when the new lottery button is clicked    
     lotterybttn.addEventListener('click', () => {
 		if(fcBtn.classList.contains("opened")){
 			fcBtn.classList.remove("opened")
@@ -140,10 +130,8 @@ function init() {
 			})
 		}
 	});
-         //activates the lottery fortune response when the new lottery button is clicked     
-  
-		
-		  //to generate random number
+             	
+	//takes in text input and generates a random lucky number then adds it to the local server 
 	form.addEventListener('submit', (e) => {
 		e.preventDefault()
 		let num = Array.from({length: 5}, () => Math.floor(Math.random() * 69) +1);
@@ -164,7 +152,6 @@ function init() {
 		});
 		form.reset()
 	})
-
 
 
 //checks state of cookie and changes the class of the cookie objects to determine wether to be at the start of the animation or the end
