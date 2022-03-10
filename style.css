@@ -122,7 +122,7 @@ button {
 .fc-fortune {
 	background:
 		linear-gradient(#fff0 .75em,#fff 0 5.25em,#fff0 0),
-		linear-gradient(90deg,currentColor 3em,#fff 0 25.25em,currentColor 0);
+		linear-gradient(90deg,currentColor 1.5em 2em,#fff 0 25.25em,currentColor 0);
 	color: #00c;
 	display: flex;
 	flex-direction: column;
@@ -264,9 +264,7 @@ button {
     
     
 }
-.bbtn :hover{
-	background: #382d0d;
-}
+
 
 .bttn{
     font-family: 'Supermercado One';
@@ -316,6 +314,4 @@ button {
 	margin: 1em;
 }
 
-#submitbttn :hover{
-	background-color: #382d0d;
-}
+

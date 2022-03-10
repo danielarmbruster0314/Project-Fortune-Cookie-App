@@ -168,13 +168,6 @@ function init() {
 
 
 
-
-
-
-
-
-
-
 	function changeClass (element){
 			    let cls = element.classList,
 				spawned = "spawned",
@@ -189,7 +182,6 @@ function init() {
 			} else {
 				cls.remove(opened);
 				cls.add(spawned);
-				getFortune();
 			}
 		};
 
