@@ -16,7 +16,7 @@ body, button {
 body {
 	
 	background-image: 
-	radial-gradient(rgba(221, 199, 72, 0.52),rgb(165, 20, 28)),
+	radial-gradient(rgba(221, 199, 72, 0.45),rgb(165, 20, 28)),
 	url('https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png') ;
 	
 }

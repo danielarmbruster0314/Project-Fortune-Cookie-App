@@ -36,7 +36,7 @@ function init() {
 			fortuneText.innerText = obj.content
 			luckyNumbers.innerText = obj.numbers
 			allTheNumbers.style.display = "inline"
-		}
+	}
 	
 	//generates just the numbers of the fortune
 	function getLuckyNum(obj){
@@ -84,6 +84,8 @@ function init() {
 
 			})
 		}
+
+
 //activates the real fortune response on click of regular fortune button
 		regularbttn.addEventListener('click',() => {
 		if(fcBtn.classList.contains("opened")){
@@ -91,14 +93,14 @@ function init() {
 			fcBtn.classList.add('spawned')
 		}else{
 
-		fetch('http://localhost:3000/fortune')
+		 fetch('http://localhost:3000/fortune')
 		.then((resp) => resp.json())
 		.then((data) => {
 			grabRandomId(data)
 			changeClass(fcBtn)
-			})
-		}
-    });
+				})
+		 	}
+    	});
 		
 	 //activates the wisdom fortune response on click of wisdom button    
     wisdombttn.addEventListener('click',() => {
@@ -111,9 +113,9 @@ function init() {
 		.then((data) => {
 			grabRandomIdWise(data)
 			changeClass(fcBtn)
-			})
-		}
-	});
+				})
+			}
+		});
         
        
     //activates the lottery fortune response when the new lottery button is clicked    
@@ -127,9 +129,9 @@ function init() {
 		.then((data) => {
 			grabRandomIdLucky(data)
 			changeClass(fcBtn)
-			})
-		}
-	});
+				})
+			}	
+		});
              	
 	//takes in text input and generates a random lucky number then adds it to the local server 
 	form.addEventListener('submit', (e) => {
@@ -170,6 +172,7 @@ function init() {
 				cls.remove(opened);
 				cls.add(spawned);
 			}
-		};
+	};
+
 
 }
