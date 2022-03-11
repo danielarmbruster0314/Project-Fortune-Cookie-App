@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Supermercado+One&display=swap');
 
 
-
+.bttn:hover{
+	background: red;
+	color:aliceblue;
+}
 
 * {
 	border: 0;
@@ -265,9 +268,6 @@ button {
     
 }
 
-.bttn:hover{
-	background-color: aqua;
-}
 
 .bttn{
   font-family: 'Supermercado One';
