@@ -112,6 +112,7 @@ function init() {
 		.then((resp) => resp.json())
 		.then((data) => {
 			grabRandomIdWise(data)
+			console.log(data)
 			changeClass(fcBtn)
 				})
 			}
